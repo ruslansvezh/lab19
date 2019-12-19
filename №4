@@ -1,0 +1,68 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	setlocale(0, "");
+	int N, M;
+
+	cout << "Введите кол-во строк:  " << endl;
+	cin >> N;
+	cout << "Введите кол-во столбцов: " << endl;
+	cin >> M;
+
+	int** arr = new int* [N];
+	for (int i = 0; i < N; i++)
+	{
+		arr[i] = new int[M];
+
+	}
+
+	cout << "Введите элементы матрицы: " << endl;
+
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			cin >> arr[i][j];
+		}
+	}
+	cout << "до изменений: " << endl;
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			cout << arr[i][j] << "\t";
+		}
+		cout << endl;
+	}
+
+	Int* buf;
+	for (int i = 0; i < N-1; i++)
+	{
+		for (int j = i + 1; j < N; j++)
+		{
+			if (arr[i][0] > arr[j][0])
+			{
+				int k = 0;
+				buf = arr[i];
+			    arr[i] = arr[j];
+				arr[j] = buf;
+			}
+		}
+	}
+
+	cout << "после изменений: " << endl;
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			cout << arr[i][j] << "\t";
+		}
+		cout << endl;
+	}
+
+
+	
+}
+
