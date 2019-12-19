@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+
+	setlocale(0, "");
+
+	int M;
+	cout << "Введите порядок матрицы : " << endl;
+	cin >> M;
+	int** arr = new int* [M];
+	for (int i = 0; i < M; i++)
+	{
+		arr[i] = new int[M];
+	}
+
+	cout << "Введите элементы матрицы: " << endl;
+
+	for (int i = 0; i < M; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			cin >> arr[i][j];
+		}
+	}
+	int sum, k = 0;
+	for (int i = 1; i <= M; i++)
+	{
+		sum = 0;
+		for (int j = 0; j < i; j++)
+		{
+			sum = sum + arr[j][M - i + j];
+		}
+		k++;
+		cout << "Сумма " << k << "ой диагонали " << sum << endl;;
+	}
+	for (int i = M - 1; i > 0; i--)
+	{
+		sum = 0;
+		for (int j = 0; j < i; j++)
+		{
+			sum =sum + arr[M - i + j][j];
+		}
+		k++;
+		cout << "Сумма " << k << "ой диагонали " << sum << endl;
+	}
+}
